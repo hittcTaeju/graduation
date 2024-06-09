@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Integration Entries</title>
+</head>
+<body>
+<h1>Integration Entries</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Event Type</th>
+        <th>Participant Name</th>
+        <th>Participant Grade</th>
+        <th>Participant Team Name</th>
+        <th>User</th>
+        <th>Competition</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entry : ${entries}">
+        <td th:text="${entry.eventType}">Event Type</td>
+        <td th:text="${entry.participantName}">Participant Name</td>
+        <td th:text="${entry.participantGrade}">Participant Grade</td>
+        <td th:text="${entry.participantTeamname}">Participant Team Name</td>
+        <td th:text="${entry.user.username}">User</td>
+        <td th:text="${entry.competition.name}">Competition</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

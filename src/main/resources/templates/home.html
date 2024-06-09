@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<h1>Competitions</h1>
+<ul>
+    <li th:each="competition : ${competitions}">
+        <a th:href="@{/competition/{id}(id=${competition.id})}" th:text="${competition.name}"></a>
+    </li>
+</ul>
+<!-- 회원가입 버튼 추가 -->
+<a th:href="@{/register}">
+    <button>회원가입</button>
+</a>
+
+<!-- 대회 개최하기 버튼 추가 -->
+<a th:href="@{/competition/new}">
+    <button>대회 개최하기</button>
+</a>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Integration Entry</title>
+</head>
+<body>
+<h1>New Integration Entry</h1>
+<form th:action="@{/integrationEntries/new}" th:object="${integrationEntry}" method="post">
+    <label for="eventType">Event Type:</label>
+    <input type="text" id="eventType" th:field="*{eventType}" /><br/>
+
+    <label for="participantName">Participant Name:</label>
+    <input type="text" id="participantName" th:field="*{participantName}" /><br/>
+
+    <label for="participantGrade">Participant Grade:</label>
+    <input type="text" id="participantGrade" th:field="*{participantGrade}" /><br/>
+
+    <label for="participantTeamname">Participant Team Name:</label>
+    <input type="text" id="participantTeamname" th:field="*{participantTeamname}" /><br/>
+
+    <label for="user">User:</label>
+    <select id="user" th:field="*{user}">
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.username}"></option>
+    </select><br/>
+
+    <label for="competition">Competition:</label>
+    <select id="competition" th:field="*{competition}">
+        <option th:each="competition : ${competitions}" th:value="${competition.id}" th:text="${competition.name}"></option>
+    </select><br/>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
